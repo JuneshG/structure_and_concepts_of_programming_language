@@ -1,0 +1,48 @@
+for i in lower_bound .. upper_bound loop
+	statement(s);
+end loop;
+
+
+ident = lower_bound
+label_start:
+	if ident > upper_bound goto label_end
+	<statements>
+	ident = ident + 1
+	goto label_start
+
+label_end:
+	
+
+EVAL initialization    // Initialize loop variable i to the start of the range
+
+loopStartLabel:
+CMP i, endValue        // Compare i with the end of the range
+JUMP_IF_GREATER endLoopLabel  // If i is greater than the end of the range, jump to end
+
+EVAL statement         // Execute the loop body
+
+INCREMENT i            // Increment the loop variable i
+JUMP loopStartLabel    // Jump back to the start of the loop
+
+endLoopLabel:
+
+
+
+
+
+loopStartLabel:
+EVAL statement        // Execute the loop body
+
+EVAL condition        // Evaluate the condition after the loop body
+CMP 0                 // Compare the condition result to zero
+JUMP_IF_FALSE endLoopLabel  // If condition is false, jump to end of the loop
+
+JUMP loopStartLabel   // Otherwise, repeat the loop
+
+endLoopLabel:
+
+
+
+for (initialization; condition; update) {
+    statement;
+}

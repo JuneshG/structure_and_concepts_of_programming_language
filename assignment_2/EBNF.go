@@ -28,3 +28,12 @@
 <union-definition> ::= "union" <identifier> "{" {<union-member>} "}" [<variable-name>]
 <union-member> ::= <type> <identifier> ";"
 <type> ::= "int" | "float" | "char" | <custom-type> | ...
+
+
+// C float literal
+<float-literal> ::= <digits> "." <digits> [ <exponent> ]
+<exponent> ::= ("e" | "E") [ "+" | "-" ] <digits>
+<digits> ::= <digit> { <digit> }
+<digit> ::= "0" | "1" | ... | "9"
+
+
